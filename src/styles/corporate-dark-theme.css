@@ -1,0 +1,33 @@
+@plugin "daisyui/theme" {
+  name: "corporate-dark";
+  color-scheme: dark;
+
+  --color-base-100: #1a1f2e;
+  --color-base-200: #141824;
+  --color-base-300: #0f1219;
+  --color-base-content: #e8edf5;
+
+  --color-primary: #4a90e2;
+  --color-primary-content: #ffffff;
+
+  --color-secondary: #5ba3f5;
+  --color-secondary-content: #ffffff;
+
+  --color-accent: #64b5f6;
+  --color-accent-content: #0f1219;
+
+  --color-neutral: #2d3748;
+  --color-neutral-content: #e8edf5;
+
+  --color-info: #4a90e2;
+  --color-info-content: #ffffff;
+
+  --color-success: #48bb78;
+  --color-success-content: #0f1219;
+
+  --color-warning: #ed8936;
+  --color-warning-content: #0f1219;
+
+  --color-error: #f56565;
+  --color-error-content: #ffffff;
+}

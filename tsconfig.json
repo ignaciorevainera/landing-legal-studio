@@ -7,9 +7,12 @@
     "paths": {
       "@/*": ["src/*"],
       "@components/*": ["src/components/*"],
+      "@layouts/*": ["src/layouts/*"],
       "@lib/*": ["src/lib/*"],
       "@styles/*": ["src/styles/*"],
-      "@assets/*": ["src/assets/*"]
-    }
+      "@assets/*": ["src/assets/*"],
+      "@instructions/*": [".github/instructions/*"]
+    },
+    "skipLibCheck": true
   }
 }
