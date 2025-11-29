@@ -10,11 +10,11 @@ interface Props {
 const { title, description, icon = "file-paper-2-fill" } = Astro.props;
 ---
 
-<div class="card bg-base-100 card-lg shadow-sm">
+<div class="card bg-base-100 card-lg shadow-lg">
   <div class="card-body">
     <div class="mb-4 flex justify-center">
       <div
-        class="bg-primary/10 flex h-16 w-16 items-center justify-center rounded-full"
+        class="bg-primary/10 flex size-16 items-center justify-center rounded-full"
       >
         <Icon name={`ri:${icon}`} size={30} class="text-primary" />
       </div>
@@ -22,7 +22,7 @@ const { title, description, icon = "file-paper-2-fill" } = Astro.props;
     <h2 class="card-title">{title}</h2>
     <p>{description}</p>
     <div class="card-actions mt-4 justify-center">
-      <button class="btn btn-primary">Consultar</button>
+      <button class="btn btn-soft btn-primary">Consultar</button>
     </div>
   </div>
 </div>
