@@ -1,11 +1,13 @@
 ---
+import { Icon } from "astro-icon/components";
+
 interface Props {
   title: string;
   description: string;
   icon?: string;
 }
 
-const { title, description, icon = "⚖️" } = Astro.props;
+const { title, description, icon = "file-paper-2-fill" } = Astro.props;
 ---
 
 <div class="card bg-base-100 card-lg shadow-sm">
@@ -14,7 +16,7 @@ const { title, description, icon = "⚖️" } = Astro.props;
       <div
         class="bg-primary/10 flex h-16 w-16 items-center justify-center rounded-full"
       >
-        <span class="text-3xl">{icon}</span>
+        <Icon name={`ri:${icon}`} size={30} class="text-primary" />
       </div>
     </div>
     <h2 class="card-title">{title}</h2>

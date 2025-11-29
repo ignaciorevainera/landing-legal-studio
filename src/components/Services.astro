@@ -3,29 +3,53 @@ import ServiceCard from "./ServiceCard.astro";
 
 const services = [
   {
-    title: "Derecho Civil y Comercial",
+    id: "civil-law",
+    title: "Derecho Civil",
     description:
-      "Asesoramiento integral en contratos, obligaciones, sociedades comerciales, y resolución de conflictos patrimoniales. Protegemos sus intereses en cada negociación.",
-    icon: "📝",
+      "Asesoramos en contratos, daños y perjuicios, sucesiones, reclamos patrimoniales y conflictos entre particulares o empresas. Defendemos sus derechos civiles y comerciales en todas las instancias.",
+    icon: "file-paper-2-fill",
   },
   {
+    id: "real-estate-law",
+    title: "Derecho Inmobiliario",
+    description:
+      "Brindamos asistencia en compraventa, alquileres, desalojos, regularización de inmuebles y desarrollos inmobiliarios. Protegemos su inversión y resolvemos conflictos de propiedad.",
+    icon: "home-9-fill",
+  },
+  {
+    id: "criminal-law",
+    title: "Derecho Penal",
+    description:
+      "Defensa y representación en causas penales, denuncias, querellas y asistencia a víctimas. Intervenimos en todas las etapas del proceso penal para resguardar sus garantías.",
+    icon: "police-badge-fill",
+  },
+  {
+    id: "labor-law",
     title: "Derecho Laboral",
     description:
-      "Representación tanto para empleados como empleadores. Gestión de despidos, indemnizaciones, accidentes laborales y defensa ante organismos de trabajo.",
-    icon: "💼",
+      "Representamos a trabajadores y empleadores en despidos, indemnizaciones, accidentes laborales, conflictos sindicales y asesoría preventiva. Defendemos sus derechos laborales.",
+    icon: "hammer-fill",
   },
   {
+    id: "tax-law",
+    title: "Derecho Tributario",
+    description:
+      "Asesoría en impuestos, recursos administrativos y judiciales, defensa ante inspecciones y planificación fiscal. Optimizamos su situación tributaria y resolvemos litigios fiscales.",
+    icon: "briefcase-fill",
+  },
+  {
+    id: "family-law",
     title: "Derecho de Familia",
     description:
-      "Acompañamiento profesional en divorcios, régimen de visitas, alimentos, adopciones y sucesiones. Buscamos soluciones que protejan el bienestar familiar.",
-    icon: "👨‍👩‍👧‍👦",
+      "Acompañamos en divorcios, alimentos, régimen de visitas, adopciones y sucesiones. Buscamos soluciones que prioricen el bienestar familiar y la protección de los menores.",
+    icon: "user-heart-fill",
   },
 ];
 ---
 
-<section id="services">
-  <div class="mt-8 mb-10 text-center">
-    <h2 class="menu-title mb-2 text-4xl">Nuestros Servicios</h2>
+<section id="services" class="mt-10">
+  <div class="mb-10 px-4 text-center">
+    <h2 class="mb-4 text-4xl font-extrabold text-balance">Servicios</h2>
     <div class="bg-primary mx-auto h-1 w-24"></div>
   </div>
   <div class="grid grid-cols-1 gap-6 px-4 sm:grid-cols-2 lg:grid-cols-3">
@@ -36,17 +60,19 @@ const services = [
     </p>
     {
       services.map((service) => (
-        <ServiceCard
-          title={service.title}
-          description={service.description}
-          icon={service.icon}
-        />
+        <div id={service.id}>
+          <ServiceCard
+            title={service.title}
+            description={service.description}
+            icon={service.icon}
+          />
+        </div>
       ))
     }
     <p>
       Cada caso es único y merece una atención especializada. Contáctenos para
       una consulta personalizada.
     </p>
-    <a href="#contacto" class="btn btn-lg">Solicitar Consulta</a>
+    <a href="#contact" class="btn btn-lg">Solicitar Consulta</a>
   </div>
 </section>
