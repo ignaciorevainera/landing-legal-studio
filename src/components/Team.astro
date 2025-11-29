@@ -1,4 +1,89 @@
-<section>
-  <h2>Team</h2>
-  
+---
+const team = [
+  {
+    name: "María López",
+    specialty: "Derecho Corporativo",
+    description:
+      "Especialista en estructuración societaria, fusiones y adquisiciones y gobierno corporativo. Asesora a empresas en expansión y procesos de due diligence.",
+    image:
+      "https://images.unsplash.com/photo-1607746882042-944635dfe10e?auto=format&fit=crop&w=400&q=80",
+  },
+  {
+    name: "Javier Martínez",
+    specialty: "Propiedad Intelectual",
+    description:
+      "Enfocado en protección de marcas, patentes y derechos de autor. Diseña estrategias de registro y defensa frente a infracciones y competencia desleal.",
+    image:
+      "https://images.unsplash.com/photo-1595152772835-219674b2a8a6?auto=format&fit=crop&w=400&q=80",
+  },
+  {
+    name: "Sofía Ramírez",
+    specialty: "Litigios Civiles",
+    description:
+      "Amplia experiencia en litigios comerciales y arbitraje. Representa a clientes en disputas complejas y métodos alternativos de resolución de conflictos.",
+    image:
+      "https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?auto=format&fit=crop&w=400&q=80",
+  },
+];
+---
+
+<section id="team">
+  <div class="mt-8 mb-10 text-center">
+    <h2 class="menu-title mb-2 text-4xl">Nuestro Equipo</h2>
+    <div class="bg-primary mx-auto h-1 w-24"></div>
+  </div>
+  <div class="grid grid-cols-1 gap-6 px-4 sm:grid-cols-2 lg:grid-cols-3">
+    <p class="leading-relaxed text-gray-700">
+      Nuestro equipo multidisciplinario combina experiencia en derecho
+      corporativo, propiedad intelectual y litigios complejos. Trabajamos de
+      forma cercana con nuestros clientes para anticipar riesgos y generar
+      soluciones estratégicas.
+    </p>
+    {
+      team.map((person) => (
+        <div class="card bg-base-100 shadow-sm">
+          <figure class="px-10 pt-10">
+            <img
+              src={person.image}
+              alt={person.name}
+              class="mask mask-hexagon size-40 object-cover"
+            />
+          </figure>
+          <div class="card-body items-center text-center">
+            <h2 class="card-title">{person.name}</h2>
+            <p class="text-sm text-gray-500">{person.specialty}</p>
+            <p>{person.description}</p>
+          </div>
+        </div>
+      ))
+    }
+
+    <div
+      class="border-primary mx-auto max-w-3xl rounded-lg border-l-4 bg-blue-50 p-6"
+    >
+      <div class="flex items-start gap-4">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          class="text-primary mt-1 h-6 w-6 shrink-0"
+          stroke="currentColor"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+          ></path>
+        </svg>
+        <div>
+          <h3 class="text-lg font-bold text-gray-900">Equipo Colaborativo</h3>
+          <p class="mt-1 text-gray-600">
+            Contamos con un equipo de 15 asociados y asistentes legales
+            especializados en diferentes áreas del derecho.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
 </section>

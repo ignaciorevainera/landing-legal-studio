@@ -1,47 +1,52 @@
-<section>
-  <h2>Services</h2>
-  <p>
-    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ad vitae eaque
-    porro error placeat debitis, minus quasi doloribus quod nesciunt?
-  </p>
-  <div>
-    <div class="card bg-base-100 card-lg w-96 shadow-sm">
-      <div class="card-body">
-        <h2 class="card-title">Large Card</h2>
-        <p>
-          A card component has a figure, a body part, and inside body there are
-          title and actions parts
-        </p>
-        <div class="card-actions justify-end">
-          <button class="btn btn-primary">Buy Now</button>
-        </div>
-      </div>
-    </div>
-    <div class="card bg-base-100 card-lg w-96 shadow-sm">
-      <div class="card-body">
-        <h2 class="card-title">Large Card</h2>
-        <p>
-          A card component has a figure, a body part, and inside body there are
-          title and actions parts
-        </p>
-        <div class="card-actions justify-end">
-          <button class="btn btn-primary">Buy Now</button>
-        </div>
-      </div>
-    </div>
-    <div class="card bg-base-100 card-lg w-96 shadow-sm">
-      <div class="card-body">
-        <h2 class="card-title">Large Card</h2>
-        <p>
-          A card component has a figure, a body part, and inside body there are
-          title and actions parts
-        </p>
-        <div class="card-actions justify-end">
-          <button class="btn btn-primary">Buy Now</button>
-        </div>
-      </div>
-    </div>
+---
+import ServiceCard from "./ServiceCard.astro";
+
+const services = [
+  {
+    title: "Derecho Civil y Comercial",
+    description:
+      "Asesoramiento integral en contratos, obligaciones, sociedades comerciales, y resolución de conflictos patrimoniales. Protegemos sus intereses en cada negociación.",
+    icon: "📝",
+  },
+  {
+    title: "Derecho Laboral",
+    description:
+      "Representación tanto para empleados como empleadores. Gestión de despidos, indemnizaciones, accidentes laborales y defensa ante organismos de trabajo.",
+    icon: "💼",
+  },
+  {
+    title: "Derecho de Familia",
+    description:
+      "Acompañamiento profesional en divorcios, régimen de visitas, alimentos, adopciones y sucesiones. Buscamos soluciones que protejan el bienestar familiar.",
+    icon: "👨‍👩‍👧‍👦",
+  },
+];
+---
+
+<section id="services">
+  <div class="mt-8 mb-10 text-center">
+    <h2 class="menu-title mb-2 text-4xl">Nuestros Servicios</h2>
+    <div class="bg-primary mx-auto h-1 w-24"></div>
   </div>
-  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor, nihil!</p>
-  <a href="" class="btn btn-lg">Learn more</a>
+  <div class="grid grid-cols-1 gap-6 px-4 sm:grid-cols-2 lg:grid-cols-3">
+    <p class="leading-relaxed text-gray-700">
+      Ofrecemos servicios jurídicos integrales con un enfoque personalizado para
+      cada cliente. Nuestro equipo de abogados especializados está comprometido
+      con la excelencia y la defensa de sus derechos.
+    </p>
+    {
+      services.map((service) => (
+        <ServiceCard
+          title={service.title}
+          description={service.description}
+          icon={service.icon}
+        />
+      ))
+    }
+    <p>
+      Cada caso es único y merece una atención especializada. Contáctenos para
+      una consulta personalizada.
+    </p>
+    <a href="#contacto" class="btn btn-lg">Solicitar Consulta</a>
+  </div>
 </section>
