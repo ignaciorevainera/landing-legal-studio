@@ -1,4 +1,6 @@
 ---
+import { Icon } from "astro-icon/components";
+
 const team = [
   {
     name: "María López",
@@ -27,9 +29,9 @@ const team = [
 ];
 ---
 
-<section id="team">
-  <div class="mt-8 mb-10 text-center">
-    <h2 class="menu-title mb-2 text-4xl">Nuestro Equipo</h2>
+<section id="team" class="mt-10">
+  <div class="mb-10 px-4 text-center">
+    <h2 class="mb-4 text-4xl font-extrabold text-balance">Equipo</h2>
     <div class="bg-primary mx-auto h-1 w-24"></div>
   </div>
   <div class="grid grid-cols-1 gap-6 px-4 sm:grid-cols-2 lg:grid-cols-3">
@@ -41,7 +43,7 @@ const team = [
     </p>
     {
       team.map((person) => (
-        <div class="card bg-base-100 shadow-sm">
+        <div class="card bg-base-200 shadow-xl">
           <figure class="px-10 pt-10">
             <img
               src={person.image}
@@ -62,20 +64,13 @@ const team = [
       class="border-primary mx-auto max-w-3xl rounded-lg border-l-4 bg-blue-50 p-6"
     >
       <div class="flex items-start gap-4">
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          fill="none"
-          viewBox="0 0 24 24"
-          class="text-primary mt-1 h-6 w-6 shrink-0"
-          stroke="currentColor"
-        >
-          <path
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="2"
-            d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-          ></path>
-        </svg>
+        <div class="shrink-0 rounded-full bg-blue-100 p-3">
+          <Icon
+            name="ri:information-2-fill"
+            class="text-primary h-6 w-6"
+            size={24}
+          />
+        </div>
         <div>
           <h3 class="text-lg font-bold text-gray-900">Equipo Colaborativo</h3>
           <p class="mt-1 text-gray-600">
