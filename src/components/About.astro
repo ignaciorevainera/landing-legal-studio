@@ -1,4 +1,6 @@
 ---
+import { Icon } from "astro-icon/components";
+
 const texts = [
   "Somos un estudio jurídico con amplia experiencia en derecho civil y mercantil. Brindamos asesoría integral para la resolución eficiente de conflictos, siempre priorizando los intereses y derechos de nuestros clientes.",
   "Ofrecemos un servicio personalizado y transparente: desde el primer contacto realizamos un análisis detallado del caso, proponemos estrategias claras y acompañamos en cada etapa del proceso hasta la resolución.",
@@ -13,9 +15,9 @@ const differentiators = [
 ];
 ---
 
-<section id="about">
-  <div class="mt-8 mb-10 text-center">
-    <h2 class="menu-title mb-2 text-4xl">Acerca de Nosotros</h2>
+<section id="about" class="mt-10">
+  <div class="mb-10 px-4 text-center">
+    <h2 class="mb-4 text-4xl font-extrabold text-balance">Nosotros</h2>
     <div class="bg-primary mx-auto h-1 w-24"></div>
   </div>
 
@@ -26,7 +28,10 @@ const differentiators = [
 
     <div class="card bg-base-200 card-sm flex w-full shadow-sm sm:w-80 md:w-96">
       <div class="card-body">
-        <h2 class="card-title text-2xl font-bold">Nuestra Filosofía</h2>
+        <h2 class="card-title text-primary text-2xl font-bold">
+          <Icon name="ri:checkbox-circle-line" size={30} />
+          Nuestra Filosofía
+        </h2>
         <p class="text-base">
           Creemos que el acceso a la justicia debe estar acompañado de un
           servicio profesional, transparente y humano. Cada caso es una
