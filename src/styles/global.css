@@ -5,8 +5,6 @@
   themes: corporate --default, corporate-dark --prefersdark;
 }
 
-;
-
 html {
   scroll-behavior: smooth;
 }
