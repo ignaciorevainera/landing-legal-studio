@@ -28,7 +28,7 @@ const contactInfo = [
   },
 ];
 
-const servicios = [
+const services = [
   "Derecho Civil",
   "Derecho Corporativo",
   "Derecho Laboral",
@@ -91,7 +91,7 @@ const servicios = [
 
   <div class="m-4 rounded-lg bg-white p-8 shadow-xl">
     <h3 class="text-primary mb-6 text-2xl font-bold">Solicitar Consulta</h3>
-    <form class="space-y-4">
+    <form class="flex flex-col space-y-4">
       <div class="grid grid-cols-1 gap-4 md:grid-cols-2">
         <div>
           <label class="mb-2 block text-sm font-semibold" for="nombre"
@@ -101,65 +101,81 @@ const servicios = [
             type="text"
             id="nombre"
             placeholder="Juan Pérez"
-            class="focus:ring-primary w-full rounded-lg border border-gray-300 px-4 py-2 outline-none focus:ring-2"
+            class="input"
             required
           />
         </div>
         <div>
-          <label class="mb-2 block text-sm font-semibold" for="telefono"
+          <label class="mb-2 block text-sm font-semibold" for="phone"
             >Teléfono<span class="text-red-600">*</span></label
           >
-          <input
-            type="tel"
-            id="telefono"
-            placeholder="(55) 5555-5555"
-            class="focus:ring-primary w-full rounded-lg border border-gray-300 px-4 py-2 outline-none focus:ring-2"
-            required
-          />
+          <label class="input validator">
+            <input
+              type="tel"
+              class="tabular-nums"
+              id="phone"
+              required
+              placeholder="(55) 5555-5555"
+              pattern="[0-9]*"
+              minlength="10"
+              maxlength="10"
+              title="Must be 10 digits"
+            />
+          </label>
+          <div class="validator-hint hidden">
+            El número debe tener 10 dígitos
+          </div>
+        </div>
+        <div>
+          <div>
+            <label class="mb-2 block text-sm font-semibold" for="email"
+              >Correo Electrónico<span class="text-red-600">*</span></label
+            >
+          </div>
+          <label class="input validator">
+            <input
+              type="email"
+              id="email"
+              placeholder="correo@ejemplo.com"
+              required
+            />
+          </label>
+          <div class="validator-hint hidden">
+            Ingrese una dirección de correo electrónico válida
+          </div>
+        </div>
+        <div>
+          <div>
+            <label class="mb-2 block text-sm font-semibold" for="service"
+              >Tipo de Servicio<span class="text-red-600">*</span></label
+            >
+          </div>
+          <select class="select" id="service" required>
+            <option disabled selected>Seleccione un servicio</option>
+            {services.map((service) => <option>{service}</option>)}
+          </select>
+        </div>
+        <div>
+          <label class="mb-2 block text-sm font-semibold" for="message"
+            >Descripción del Caso<span class="text-red-600">*</span></label
+          >
+          <textarea
+            id="message"
+            rows="4"
+            class="textarea"
+            placeholder="Describa brevemente su situación legal..."
+            required></textarea>
         </div>
       </div>
-
-      <div>
-        <label class="mb-2 block text-sm font-semibold" for="email"
-          >Correo Electrónico<span class="text-red-600">*</span></label
-        >
+      <div class="flex items-start gap-2">
         <input
-          type="email"
-          id="email"
-          placeholder="correo@ejemplo.com"
-          class="focus:ring-primary w-full rounded-lg border border-gray-300 px-4 py-2 outline-none focus:ring-2"
+          type="checkbox"
+          checked="checked"
+          id="privacidad"
+          class="checkbox checkbox-primary checkbox-sm"
           required
         />
-      </div>
 
-      <div>
-        <label class="mb-2 block text-sm font-semibold" for="servicio"
-          >Tipo de Servicio<span class="text-red-600">*</span></label
-        >
-        <select
-          id="servicio"
-          class="focus:ring-primary w-full rounded-lg border border-gray-300 px-4 py-2 outline-none focus:ring-2"
-          required
-        >
-          <option disabled selected>Seleccione un servicio</option>
-          {servicios.map((servicio) => <option>{servicio}</option>)}
-        </select>
-      </div>
-
-      <div>
-        <label class="mb-2 block text-sm font-semibold" for="mensaje"
-          >Descripción del Caso<span class="text-red-600">*</span></label
-        >
-        <textarea
-          id="mensaje"
-          rows="4"
-          class="focus:ring-primary w-full rounded-lg border border-gray-300 px-4 py-2 outline-none focus:ring-2"
-          placeholder="Describa brevemente su situación legal..."
-          required></textarea>
-      </div>
-
-      <div class="flex items-start gap-2">
-        <input type="checkbox" id="privacidad" class="mt-1" required />
         <label for="privacidad" class="text-sm text-gray-600">
           Acepto el <a href="#" class="text-primary hover:underline"
             >Aviso de Privacidad</a
@@ -167,15 +183,10 @@ const servicios = [
         </label>
       </div>
 
-      <button
-        type="submit"
-        class="bg-primary w-full rounded-lg py-3 font-semibold text-white transition-colors hover:bg-blue-700"
-      >
-        Enviar Solicitud
-      </button>
+      <button type="submit" class="btn btn-primary">Enviar Solicitud</button>
 
       <p class="text-center text-sm text-gray-500">
-        <span class="text-red-600">*</span> Campos obligatorios. Respuesta en 24
+        <span class="text-red-600">* </span>Campos obligatorios. Respuesta en 24
         horas.
       </p>
     </form>
