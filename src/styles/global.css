@@ -5,6 +5,8 @@
   themes: corporate --default, corporate-dark --prefersdark;
 }
 
+@custom-variant dark (&:where([data-theme=corporate-dark], [data-theme=corporate-dark] *));
+
 html {
   scroll-behavior: smooth;
 }

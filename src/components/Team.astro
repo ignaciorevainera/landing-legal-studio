@@ -35,7 +35,7 @@ const team = [
     <div class="bg-primary mx-auto h-1 w-24"></div>
   </div>
   <div class="grid grid-cols-1 gap-6 px-4 sm:grid-cols-2 lg:grid-cols-3">
-    <p class="leading-relaxed text-gray-700">
+    <p class="leading-relaxed text-gray-700 dark:text-white">
       Nuestro equipo multidisciplinario combina experiencia en derecho
       corporativo, propiedad intelectual y litigios complejos. Trabajamos de
       forma cercana con nuestros clientes para anticipar riesgos y generar
@@ -53,7 +53,7 @@ const team = [
           </figure>
           <div class="card-body items-center text-center">
             <h2 class="card-title">{person.name}</h2>
-            <p class="text-sm text-gray-500">{person.specialty}</p>
+            <p class="text-accent text-sm">{person.specialty}</p>
             <p>{person.description}</p>
           </div>
         </div>
@@ -61,19 +61,21 @@ const team = [
     }
 
     <div
-      class="border-primary mx-auto max-w-3xl rounded-lg border-l-4 bg-blue-50 p-6"
+      class="border-primary dark:bg-base-300 mx-auto max-w-3xl rounded-lg border-l-4 bg-blue-50 p-6"
     >
       <div class="flex items-start gap-4">
-        <div class="shrink-0 rounded-full bg-blue-100 p-3">
+        <div class="shrink-0 rounded-full bg-blue-100 p-3 dark:bg-blue-900">
           <Icon
             name="ri:information-2-fill"
-            class="text-primary h-6 w-6"
+            class="text-primary h-6 w-6 dark:text-white"
             size={24}
           />
         </div>
         <div>
-          <h3 class="text-lg font-bold text-gray-900">Equipo Colaborativo</h3>
-          <p class="mt-1 text-gray-600">
+          <h3 class="text-lg font-bold text-gray-900 dark:text-white">
+            Equipo Colaborativo
+          </h3>
+          <p class="mt-1 text-gray-600 dark:text-gray-300">
             Contamos con un equipo de 15 asociados y asistentes legales
             especializados en diferentes áreas del derecho.
           </p>
