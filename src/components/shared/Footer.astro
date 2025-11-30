@@ -2,37 +2,40 @@
 import { Icon } from "astro-icon/components";
 ---
 
-<footer class="footer sm:footer-horizontal bg-base-200 text-base-content p-10">
-  <nav>
-    <h6 class="footer-title">Servicios</h6>
-    <a class="link link-hover" href="#civil-law">Derecho Civil y Comercial</a>
-    <a class="link link-hover" href="#real-estate-law">Derecho Inmobiliario</a>
-    <a class="link link-hover" href="#criminal-law">Derecho Penal</a>
-    <a class="link link-hover" href="#labor-law">Derecho Laboral</a>
-    <a class="link link-hover" href="#tax-law">Derecho Tributario</a>
-    <a class="link link-hover" href="#family-law">Derecho de Familia</a>
-  </nav>
-  <nav>
-    <h6 class="footer-title">Estudio</h6>
-    <a class="link link-hover" href="#about">Sobre Nosotros</a>
-    <a class="link link-hover" href="#team">Equipo</a>
-    <a class="link link-hover" href="#contact">Contacto</a>
-    <!-- <a class="link link-hover">Empleos</a> -->
-  </nav>
-  <nav>
-    <h6 class="footer-title">Redes</h6>
-    <div class="grid grid-flow-col items-center gap-4">
-      <a>
-        <Icon name="ri:twitter-x-fill" size={30} />
-      </a>
-      <a>
-        <Icon name="ri:instagram-line" size={30} />
-      </a>
-      <a>
-        <Icon name="ri:facebook-fill" size={30} />
-      </a>
-    </div>
-  </nav>
+<footer class="bg-base-200 text-base-content p-10">
+  <div class="footer sm:footer-horizontal lg:mx-auto lg:max-w-6xl">
+    <nav>
+      <h6 class="footer-title">Servicios</h6>
+      <a class="link link-hover" href="#civil-law">Derecho Civil y Comercial</a>
+      <a class="link link-hover" href="#real-estate-law">Derecho Inmobiliario</a
+      >
+      <a class="link link-hover" href="#criminal-law">Derecho Penal</a>
+      <a class="link link-hover" href="#labor-law">Derecho Laboral</a>
+      <a class="link link-hover" href="#tax-law">Derecho Tributario</a>
+      <a class="link link-hover" href="#family-law">Derecho de Familia</a>
+    </nav>
+    <nav>
+      <h6 class="footer-title">Estudio</h6>
+      <a class="link link-hover" href="#about">Sobre Nosotros</a>
+      <a class="link link-hover" href="#team">Equipo</a>
+      <a class="link link-hover" href="#contact">Contacto</a>
+      <!-- <a class="link link-hover">Empleos</a> -->
+    </nav>
+    <nav>
+      <h6 class="footer-title">Redes</h6>
+      <div class="grid grid-flow-col items-center gap-4">
+        <a>
+          <Icon name="ri:twitter-x-fill" size={30} />
+        </a>
+        <a>
+          <Icon name="ri:instagram-line" size={30} />
+        </a>
+        <a>
+          <Icon name="ri:facebook-fill" size={30} />
+        </a>
+      </div>
+    </nav>
+  </div>
 </footer>
 <section
   class="footer sm:footer-horizontal footer-center bg-accent text-base-content p-4"
