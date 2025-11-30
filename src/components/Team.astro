@@ -1,5 +1,11 @@
 ---
 import { Icon } from "astro-icon/components";
+import { Picture } from "astro:assets";
+import TeamMember1 from "@assets/team/team-photo-1.avif";
+import TeamMember2 from "@assets/team/team-photo-2.avif";
+import TeamMember3 from "@assets/team/team-photo-3.avif";
+import TeamMember4 from "@assets/team/team-photo-4.avif";
+import TeamMember5 from "@assets/team/team-photo-5.avif";
 
 const team = [
   {
@@ -7,40 +13,35 @@ const team = [
     specialty: "Derecho Corporativo",
     description:
       "Especialista en estructuración societaria, fusiones y adquisiciones y gobierno corporativo. Asesora a empresas en expansión y procesos de due diligence.",
-    image:
-      "https://images.unsplash.com/photo-1607746882042-944635dfe10e?auto=format&fit=crop&w=400&q=80",
+    image: TeamMember1,
   },
   {
     name: "Javier Martínez",
     specialty: "Propiedad Intelectual",
     description:
       "Enfocado en protección de marcas, patentes y derechos de autor. Diseña estrategias de registro y defensa frente a infracciones y competencia desleal.",
-    image:
-      "https://images.unsplash.com/photo-1595152772835-219674b2a8a6?auto=format&fit=crop&w=400&q=80",
+    image: TeamMember2,
   },
   {
     name: "Sofía Ramírez",
     specialty: "Litigios Civiles",
     description:
       "Amplia experiencia en litigios comerciales y arbitraje. Representa a clientes en disputas complejas y métodos alternativos de resolución de conflictos.",
-    image:
-      "https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?auto=format&fit=crop&w=400&q=80",
+    image: TeamMember3,
   },
   {
     name: "Diego Fernández",
     specialty: "Derecho Tributario",
     description:
       "Experto en planificación fiscal, defensa en inspecciones y recursos administrativos. Optimiza estructuras tributarias para empresas y particulares.",
-    image:
-      "https://images.unsplash.com/photo-1527980965255-d3b416303d12?auto=format&fit=crop&w=400&q=80",
+    image: TeamMember4,
   },
   {
     name: "Lucía Gómez",
     specialty: "Derecho de Familia",
     description:
       "Especialista en procesos de divorcio, adopciones y mediación familiar. Enfocada en soluciones que priorizan el bienestar de niñas, niños y adolescentes.",
-    image:
-      "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=400&q=80",
+    image: TeamMember5,
   },
 ];
 ---
@@ -67,16 +68,13 @@ const team = [
             class="card bg-base-200 h-full shadow-lg"
             aria-labelledby={`${person.name}-title`}
           >
-            <figure class="px-10 pt-10">
-              <img
+            <div class="card-body items-center text-center">
+              <Picture
                 src={person.image}
+                formats={["avif", "webp", "jpeg"]}
                 alt={`Foto profesional de ${person.name}, especialista en ${person.specialty}`}
                 class="mask mask-hexagon size-40 object-cover"
-                loading="lazy"
-                decoding="async"
               />
-            </figure>
-            <div class="card-body items-center text-center">
               <h3 id={`${person.name}-title`} class="card-title">
                 {person.name}
               </h3>
