@@ -44,11 +44,11 @@ const services = [
 
 <section
   id="contact"
-  class="dark:to-base-300 mt-10 rounded-t-xl bg-linear-to-b from-blue-50 to-slate-50 py-4 dark:from-slate-700"
+  class="dark:to-base-300 mt-6 flex flex-col rounded-t-xl bg-linear-to-b from-blue-50 to-slate-50 dark:from-slate-700"
   aria-labelledby="contact-heading"
 >
   <div class="bg-base-100 m-4 rounded p-8 shadow-2xl">
-    <div class="mb-10 px-4 text-center">
+    <header class="mb-8 px-4 text-center">
       <h2
         id="contact-heading"
         class="mb-4 text-4xl font-extrabold text-balance"
@@ -56,7 +56,7 @@ const services = [
         Contacto
       </h2>
       <div class="bg-primary mx-auto h-1 w-24"></div>
-    </div>
+    </header>
     <div
       class="grid grid-cols-1 gap-6 px-4 sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3"
       role="list"
@@ -97,7 +97,7 @@ const services = [
       src={MapsPlaceholder}
       formats={["avif", "webp", "png"]}
       alt="Mapa de ubicación del Estudio Jurídico"
-      class="w-full rounded-lg shadow-lg"
+      class="w-full rounded-lg object-cover shadow-lg sm:h-64"
     />
   </div>
 
