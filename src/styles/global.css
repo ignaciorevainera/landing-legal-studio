@@ -10,16 +10,3 @@
 html {
   scroll-behavior: smooth;
 }
-
-:root {
-  --my-color: #fff;
-  /* or any other variables/style */
-}
-
-[data-theme='corporate-dark'] {
-  --my-color: #000;
-}
-
-[data-theme='corporate'] {
-  --my-color: #ffabc8;
-}
