@@ -44,69 +44,91 @@ const services = [
 
 <section
   id="contact"
-  class="dark:to-base-300 mt-6 flex flex-col rounded-t-xl bg-linear-to-b from-blue-50 to-slate-50 dark:from-slate-700"
+  class="dark:to-base-300 mt-6 flex flex-col gap-4 rounded-t-xl bg-linear-to-b from-blue-50 to-slate-50 py-8 lg:py-16 dark:from-slate-700"
   aria-labelledby="contact-heading"
 >
-  <div class="bg-base-100 m-4 rounded p-8 shadow-2xl">
-    <header class="mb-8 px-4 text-center">
-      <h2
-        id="contact-heading"
-        class="mb-4 text-4xl font-extrabold text-balance"
-      >
-        Contacto
-      </h2>
-      <div class="bg-primary mx-auto h-1 w-24"></div>
-    </header>
+  <div
+    class="mx-4 grid gap-4 sm:grid-cols-4 lg:mx-auto lg:w-5xl lg:grid-cols-12 xl:w-6xl"
+  >
     <div
-      class="grid grid-cols-1 gap-6 px-4 sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3"
-      role="list"
+      class="bg-base-100 rounded p-8 shadow-2xl sm:col-span-3 lg:col-span-9 lg:p-12"
     >
-      <p
-        class="leading-relaxed text-gray-700 sm:col-span-2 lg:col-span-2 xl:col-span-1 dark:text-white"
+      <header class="mb-8 px-4 text-center lg:mb-12">
+        <h2
+          id="contact-heading"
+          class="mb-4 text-4xl font-extrabold text-balance lg:text-5xl"
+        >
+          Contacto
+        </h2>
+        <div class="bg-primary mx-auto h-1 w-24 rounded-full"></div>
+      </header>
+
+      <div class="mb-8 text-center lg:mb-12">
+        <p
+          class="leading-relaxed text-gray-700 lg:text-lg xl:text-xl dark:text-white"
+        >
+          Estamos listos para escuchar su caso. Primera consulta sin costo.
+        </p>
+      </div>
+
+      <div
+        class="grid grid-cols-1 gap-6 px-4 sm:grid-cols-2 lg:gap-8"
+        role="list"
       >
-        Estamos listos para escuchar su caso. Primera consulta sin costo.
-      </p>
-      {
-        contactInfo.map((item) => (
-          <div class="flex items-start gap-4" role="listitem">
-            <div
-              class="shrink-0 rounded-full bg-blue-100 p-3"
-              aria-hidden="true"
-            >
-              <Icon
-                name={`ri:${item.icon}`}
-                class="text-primary h-6 w-6"
-                size={24}
-              />
+        {
+          contactInfo.map((item) => (
+            <div class="flex items-start gap-4" role="listitem">
+              <div
+                class="shrink-0 rounded-full bg-blue-100 p-3 lg:p-4"
+                aria-hidden="true"
+              >
+                <Icon
+                  name={`ri:${item.icon}`}
+                  class="text-primary h-6 w-6 lg:h-7 lg:w-7"
+                  size={28}
+                />
+              </div>
+              <div class="min-w-0 flex-1">
+                <h4 class="mb-1 text-lg font-bold lg:text-xl">{item.title}</h4>
+                <p
+                  class="text-sm wrap-break-word text-gray-600 lg:text-base dark:text-gray-300"
+                  set:html={item.content}
+                />
+              </div>
             </div>
-            <div class="min-w-0 flex-1">
-              <h4 class="mb-1 text-lg font-bold">{item.title}</h4>
-              <p
-                class="wrap-break-word text-gray-600 dark:text-gray-300"
-                set:html={item.content}
-              />
-            </div>
-          </div>
-        ))
-      }
+          ))
+        }
+      </div>
+    </div>
+
+    <div class="flex items-stretch sm:col-span-1 lg:col-span-3">
+      <Picture
+        src={MapsPlaceholder}
+        formats={["avif", "webp", "png"]}
+        alt="Mapa de ubicación del Estudio Jurídico"
+        class="w-full rounded-lg object-cover shadow-lg sm:h-full"
+      />
     </div>
   </div>
 
-  <div class="px-4">
-    <Picture
-      src={MapsPlaceholder}
-      formats={["avif", "webp", "png"]}
-      alt="Mapa de ubicación del Estudio Jurídico"
-      class="w-full rounded-lg object-cover shadow-lg sm:h-64"
-    />
-  </div>
-
-  <div class="bg-base-100 m-4 rounded-lg p-8 shadow-xl">
-    <h3 class="text-primary mb-6 text-2xl font-bold">Solicitar Consulta</h3>
-    <form class="flex flex-col space-y-4" aria-describedby="form-help">
-      <div class="grid grid-cols-1 gap-4 md:grid-cols-2">
+  <div
+    class="bg-base-100 mx-4 rounded-lg p-8 shadow-xl lg:mx-auto lg:w-5xl lg:p-12 xl:w-6xl"
+  >
+    <h3
+      class="text-primary mb-6 text-2xl font-bold lg:mb-8 lg:text-4xl xl:text-5xl"
+    >
+      Solicitar Consulta
+    </h3>
+    <form
+      class="flex flex-col space-y-4 lg:space-y-6"
+      aria-describedby="form-help"
+    >
+      <div class="grid grid-cols-1 gap-4 md:grid-cols-2 lg:gap-6 xl:gap-8">
         <div>
-          <label class="mb-2 block text-sm font-semibold" for="nombre">
+          <label
+            class="mb-2 block text-sm font-semibold lg:text-base"
+            for="nombre"
+          >
             Nombre Completo<span class="text-red-600">*</span>
           </label>
           <input
@@ -114,21 +136,24 @@ const services = [
             id="nombre"
             name="nombre"
             placeholder="Juan Pérez"
-            class="input input-bordered w-full"
+            class="input input-bordered lg:input-lg w-full"
             required
             autocomplete="name"
           />
         </div>
         <div>
-          <label class="mb-2 block text-sm font-semibold" for="phone">
+          <label
+            class="mb-2 block text-sm font-semibold lg:text-base"
+            for="phone"
+          >
             Teléfono<span class="text-red-600">*</span>
           </label>
-          <label class="input input-bordered validator w-full">
+          <label class="input input-bordered validator lg:input-lg w-full">
             <input
               type="tel"
               id="phone"
               name="telefono"
-              class="w-full tabular-nums"
+              class="w-full tabular-nums lg:text-lg"
               required
               placeholder="5555555555"
               pattern="\d{10}"
@@ -145,15 +170,19 @@ const services = [
           </div>
         </div>
         <div>
-          <label class="mb-2 block text-sm font-semibold" for="email">
+          <label
+            class="mb-2 block text-sm font-semibold lg:text-base"
+            for="email"
+          >
             Correo Electrónico<span class="text-red-600">*</span>
           </label>
-          <label class="input input-bordered validator w-full">
+          <label class="input input-bordered validator lg:input-lg w-full">
             <input
               type="email"
               id="email"
               name="email"
               placeholder="correo@ejemplo.com"
+              class="w-full lg:text-lg"
               required
               autocomplete="email"
               aria-describedby="email-hint"
@@ -167,11 +196,14 @@ const services = [
           </div>
         </div>
         <div>
-          <label class="mb-2 block text-sm font-semibold" for="service">
+          <label
+            class="mb-2 block text-sm font-semibold lg:text-base"
+            for="service"
+          >
             Tipo de Servicio<span class="text-red-600">*</span>
           </label>
           <select
-            class="select select-bordered w-full"
+            class="select select-bordered lg:select-lg w-full"
             id="service"
             name="servicio"
             required
@@ -181,30 +213,33 @@ const services = [
           </select>
         </div>
         <div class="md:col-span-2">
-          <label class="mb-2 block text-sm font-semibold" for="message">
+          <label
+            class="mb-2 block text-sm font-semibold lg:text-base"
+            for="message"
+          >
             Descripción del Caso<span class="text-red-600">*</span>
           </label>
           <textarea
             id="message"
             name="mensaje"
             rows="4"
-            class="textarea textarea-bordered w-full"
+            class="textarea textarea-bordered lg:textarea-lg w-full lg:min-h-32"
             placeholder="Describa brevemente su situación legal..."
             required></textarea>
         </div>
       </div>
 
-      <fieldset class="flex items-start gap-2">
+      <fieldset class="flex items-start gap-2 lg:gap-3">
         <input
           type="checkbox"
           id="privacidad"
           name="privacidad"
-          class="checkbox checkbox-primary checkbox-sm"
+          class="checkbox checkbox-primary checkbox-sm lg:checkbox-md"
           required
         />
         <label
           for="privacidad"
-          class="text-sm text-gray-600 dark:text-gray-400"
+          class="text-sm text-gray-600 lg:text-base dark:text-gray-400"
         >
           Acepto el <a href="#" class="text-primary hover:underline"
             >Aviso de Privacidad</a
@@ -213,13 +248,13 @@ const services = [
         </label>
       </fieldset>
 
-      <button type="submit" class="btn btn-primary btn-block"
+      <button type="submit" class="btn btn-primary btn-block lg:btn-lg"
         >Enviar Solicitud</button
       >
 
       <p
         id="form-help"
-        class="text-center text-sm text-gray-500 dark:text-gray-400"
+        class="text-center text-sm text-gray-500 lg:text-base dark:text-gray-400"
       >
         <span class="text-red-600">* </span>Campos obligatorios. Respuesta en 24
         horas.
