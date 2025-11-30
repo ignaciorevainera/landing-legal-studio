@@ -1,11 +1,12 @@
 ---
 import { Icon } from "astro-icon/components";
 import { Picture } from "astro:assets";
-import TeamMember1 from "@assets/team/team-photo-1.avif";
-import TeamMember2 from "@assets/team/team-photo-2.avif";
-import TeamMember3 from "@assets/team/team-photo-3.avif";
-import TeamMember4 from "@assets/team/team-photo-4.avif";
-import TeamMember5 from "@assets/team/team-photo-5.avif";
+import TeamMember1 from "@assets/team/team-photo-1.png";
+import TeamMember2 from "@assets/team/team-photo-2.png";
+import TeamMember3 from "@assets/team/team-photo-3.png";
+import TeamMember4 from "@assets/team/team-photo-4.png";
+import TeamMember5 from "@assets/team/team-photo-5.png";
+import TeamMember6 from "@assets/team/team-photo-6.png";
 
 const team = [
   {
@@ -43,23 +44,34 @@ const team = [
       "Especialista en procesos de divorcio, adopciones y mediación familiar. Enfocada en soluciones que priorizan el bienestar de niñas, niños y adolescentes.",
     image: TeamMember5,
   },
+  {
+    name: "Andrés Castillo",
+    specialty: "Derecho Ambiental",
+    description:
+      "Asesora en cumplimiento normativo ambiental, evaluaciones de impacto y litigios sobre recursos naturales y sostenibilidad corporativa.",
+    image: TeamMember6,
+  },
 ];
 ---
 
-<section id="team" class="py-16 md:py-20" aria-labelledby="team-heading">
+<section id="team" aria-labelledby="team-heading">
   <div class="container mx-auto max-w-7xl px-4">
-    <header class="mb-10 text-center">
+    <header class="my-16 text-center">
       <h2 id="team-heading" class="mb-4 text-4xl font-extrabold text-balance">
         Equipo
       </h2>
       <div class="bg-primary mx-auto h-1 w-24 rounded-full"></div>
-      <p class="prose prose-sm mx-auto mt-6 text-gray-700 dark:text-gray-300">
+    </header>
+    <div class="mb-6">
+      <p
+        class="prose prose-sm mx-auto text-gray-700 md:text-lg dark:text-gray-300"
+      >
         Nuestro equipo multidisciplinario combina experiencia en derecho
         corporativo, propiedad intelectual y litigios complejos. Trabajamos de
         forma cercana con nuestros clientes para anticipar riesgos y generar
         soluciones estratégicas.
       </p>
-    </header>
+    </div>
 
     <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
       {
@@ -83,7 +95,7 @@ const team = [
 
               <div class="mt-4 flex items-center justify-center gap-2">
                 <button
-                  class="btn btn-primary btn-sm"
+                  class="btn btn-primary"
                   type="button"
                   aria-label={`Solicitar reunión con ${person.name}`}
                 >
@@ -91,7 +103,7 @@ const team = [
                 </button>
                 <a
                   href={`mailto:contacto@legalstudio.com?subject=Consulta%20para%20${encodeURIComponent(person.name)}`}
-                  class="btn btn-secondary btn-square btn-sm"
+                  class="btn btn-secondary btn-square"
                   aria-label={`Enviar correo a ${person.name}`}
                 >
                   <Icon name="ri:mail-fill" size={20} />
@@ -103,7 +115,7 @@ const team = [
       }
     </div>
 
-    <aside class="mt-10">
+    <aside class="mt-6">
       <div
         class="border-primary bg-base-200 dark:bg-base-300 mx-auto max-w-3xl rounded-lg border-l-4 p-6"
       >
@@ -117,7 +129,7 @@ const team = [
           </div>
           <div>
             <h3 class="text-lg font-bold">Equipo Colaborativo</h3>
-            <p class="mt-1 text-gray-600 dark:text-gray-300">
+            <p class="mt-1 text-gray-600 md:text-lg dark:text-gray-300">
               Contamos con un equipo de 15 asociados y asistentes legales
               especializados en diferentes áreas del derecho.
             </p>
