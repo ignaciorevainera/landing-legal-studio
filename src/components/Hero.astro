@@ -1,24 +1,58 @@
-<section id="hero">
-  <div
-    class="hero min-h-screen"
-    style="background-image: url(https://img.daisyui.com/images/stock/photo-1507358522600-9f71e620c44e.webp);"
-  >
-    <div class="hero-overlay"></div>
+---
+import { Picture } from "astro:assets";
+import HeroBackground from "../assets/hero-background.jpg";
+
+const {
+  badge = "Excelencia Legal desde 1998",
+  title = "Defendemos tus derechos con integridad y firmeza",
+  description = "Brindamos asesoría legal integral enfocada en resultados. Tu tranquilidad es nuestra prioridad. Especialistas en derecho corporativo y civil.",
+} = Astro.props;
+---
+
+<section
+  id="hero"
+  role="banner"
+  aria-label="Sección principal: estudio jurídico y servicios legales"
+  class="relative"
+>
+  <div class="hero min-h-screen">
+    <div class="absolute inset-0 -z-10">
+      <Picture
+        src={HeroBackground}
+        formats={["avif", "webp", "jpeg"]}
+        alt="Equipo legal revisando documentación en un despacho"
+        class={"h-full w-full object-cover"}
+      />
+      <div
+        class="absolute inset-0 bg-linear-to-b from-black/70 via-black/50 to-black/80"
+      >
+      </div>
+    </div>
     <div class="hero-content text-neutral-content text-center">
-      <div class="max-w-md">
-        <div class="badge badge-md badge-outline mb-4">
-          Excelencia Legal desde 1998
+      <div class="mx-auto max-w-xl px-4">
+        <div class="badge badge-secondary badge-sm md:badge-md mb-4">
+          {badge}
         </div>
-        <h1 class="mb-5 text-5xl font-bold">
-          Defendemos tus derechos con integridad y firmeza
+        <h1
+          class="mb-6 text-3xl leading-tight font-bold text-pretty md:text-5xl"
+        >
+          {title}
         </h1>
-        <p class="mb-5 text-pretty">
-          Brindamos asesoría legal integral enfocada en resultados. Tu
-          tranquilidad es nuestra prioridad. Especialistas en derecho
-          corporativo y civil.
+        <p class="mb-8 text-sm text-pretty md:text-base">
+          {description}
         </p>
-        <button class="btn btn-primary">Contactar Ahora</button>
-        <button class="btn btn-soft btn-secondary">Nuestros Servicios</button>
+        <div class="flex flex-col justify-center gap-4 sm:flex-row">
+          <a
+            href="#contacto"
+            class="btn btn-primary"
+            aria-label="Ir a la sección de contacto">Contactar Ahora</a
+          >
+          <a
+            href="#servicios"
+            class="btn btn-secondary btn-soft"
+            aria-label="Ver lista de servicios legales">Nuestros Servicios</a
+          >
+        </div>
       </div>
     </div>
   </div>
