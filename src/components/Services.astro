@@ -47,32 +47,55 @@ const services = [
 ];
 ---
 
-<section id="services" class="mt-10">
-  <div class="mb-10 px-4 text-center">
-    <h2 class="mb-4 text-4xl font-extrabold text-balance">Servicios</h2>
-    <div class="bg-primary mx-auto h-1 w-24"></div>
-  </div>
-  <div class="grid grid-cols-1 gap-6 px-4 sm:grid-cols-2 lg:grid-cols-3">
-    <p class="leading-relaxed text-gray-700 dark:text-white">
-      Ofrecemos servicios jurídicos integrales con un enfoque personalizado para
-      cada cliente. Nuestro equipo de abogados especializados está comprometido
-      con la excelencia y la defensa de sus derechos.
-    </p>
-    {
-      services.map((service) => (
-        <div id={service.id}>
-          <ServiceCard
-            title={service.title}
-            description={service.description}
-            icon={service.icon}
-          />
-        </div>
-      ))
-    }
-    <p>
-      Cada caso es único y merece una atención especializada. Contáctenos para
-      una consulta personalizada.
-    </p>
-    <a href="#contact" class="btn btn-lg">Solicitar Consulta</a>
+<section id="services" class="mt-20" aria-labelledby="services-heading">
+  <div class="container mx-auto max-w-7xl px-4">
+    <header class="mb-10">
+      <div>
+        <h2
+          id="services-heading"
+          class="mb-4 text-center text-4xl font-extrabold text-balance"
+        >
+          Servicios
+        </h2>
+        <div class="bg-primary mx-auto h-1 w-24 rounded-full"></div>
+      </div>
+      <p class="prose prose-sm mt-6 text-gray-700 dark:text-gray-300">
+        Ofrecemos servicios jurídicos integrales con un enfoque personalizado
+        para cada cliente. Nuestro equipo de abogados especializados está
+        comprometido con la excelencia y la defensa de sus derechos.
+      </p>
+    </header>
+
+    <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+      {
+        services.map((service) => (
+          <article
+            id={service.id}
+            class="h-full"
+            aria-labelledby={`${service.id}-title`}
+          >
+            <ServiceCard
+              title={service.title}
+              description={service.description}
+              icon={service.icon}
+            />
+          </article>
+        ))
+      }
+    </div>
+
+    <footer class="mt-10 text-center">
+      <p class="prose prose-sm mx-auto mb-6 text-gray-700 dark:text-gray-300">
+        Cada caso es único y merece una atención especializada. Contáctenos para
+        una consulta personalizada.
+      </p>
+      <a
+        href="#contact"
+        class="btn btn-primary btn-lg"
+        aria-label="Solicitar una consulta personalizada"
+      >
+        Solicitar Consulta
+      </a>
+    </footer>
   </div>
 </section>

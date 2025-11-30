@@ -26,61 +26,106 @@ const team = [
     image:
       "https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?auto=format&fit=crop&w=400&q=80",
   },
+  {
+    name: "Diego Fernández",
+    specialty: "Derecho Tributario",
+    description:
+      "Experto en planificación fiscal, defensa en inspecciones y recursos administrativos. Optimiza estructuras tributarias para empresas y particulares.",
+    image:
+      "https://images.unsplash.com/photo-1527980965255-d3b416303d12?auto=format&fit=crop&w=400&q=80",
+  },
+  {
+    name: "Lucía Gómez",
+    specialty: "Derecho de Familia",
+    description:
+      "Especialista en procesos de divorcio, adopciones y mediación familiar. Enfocada en soluciones que priorizan el bienestar de niñas, niños y adolescentes.",
+    image:
+      "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=400&q=80",
+  },
 ];
 ---
 
-<section id="team" class="mt-10">
-  <div class="mb-10 px-4 text-center">
-    <h2 class="mb-4 text-4xl font-extrabold text-balance">Equipo</h2>
-    <div class="bg-primary mx-auto h-1 w-24"></div>
-  </div>
-  <div class="grid grid-cols-1 gap-6 px-4 sm:grid-cols-2 lg:grid-cols-3">
-    <p class="leading-relaxed text-gray-700 dark:text-white">
-      Nuestro equipo multidisciplinario combina experiencia en derecho
-      corporativo, propiedad intelectual y litigios complejos. Trabajamos de
-      forma cercana con nuestros clientes para anticipar riesgos y generar
-      soluciones estratégicas.
-    </p>
-    {
-      team.map((person) => (
-        <div class="card bg-base-200 shadow-lg">
-          <figure class="px-10 pt-10">
-            <img
-              src={person.image}
-              alt={person.name}
-              class="mask mask-hexagon size-40 object-cover"
+<section id="team" class="py-16 md:py-20" aria-labelledby="team-heading">
+  <div class="container mx-auto max-w-7xl px-4">
+    <header class="mb-10 text-center">
+      <h2 id="team-heading" class="mb-4 text-4xl font-extrabold text-balance">
+        Equipo
+      </h2>
+      <div class="bg-primary mx-auto h-1 w-24 rounded-full"></div>
+      <p class="prose prose-sm mx-auto mt-6 text-gray-700 dark:text-gray-300">
+        Nuestro equipo multidisciplinario combina experiencia en derecho
+        corporativo, propiedad intelectual y litigios complejos. Trabajamos de
+        forma cercana con nuestros clientes para anticipar riesgos y generar
+        soluciones estratégicas.
+      </p>
+    </header>
+
+    <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+      {
+        team.map((person) => (
+          <article
+            class="card bg-base-200 h-full shadow-lg"
+            aria-labelledby={`${person.name}-title`}
+          >
+            <figure class="px-10 pt-10">
+              <img
+                src={person.image}
+                alt={`Foto profesional de ${person.name}, especialista en ${person.specialty}`}
+                class="mask mask-hexagon size-40 object-cover"
+                loading="lazy"
+                decoding="async"
+              />
+            </figure>
+            <div class="card-body items-center text-center">
+              <h3 id={`${person.name}-title`} class="card-title">
+                {person.name}
+              </h3>
+              <p class="text-accent text-sm font-bold">{person.specialty}</p>
+              <p class="text-sm md:text-base">{person.description}</p>
+
+              <div class="mt-4 flex items-center justify-center gap-2">
+                <button
+                  class="btn btn-primary btn-sm"
+                  type="button"
+                  aria-label={`Solicitar reunión con ${person.name}`}
+                >
+                  Solicitar reunión
+                </button>
+                <a
+                  href={`mailto:contacto@legalstudio.com?subject=Consulta%20para%20${encodeURIComponent(person.name)}`}
+                  class="btn btn-secondary btn-square btn-sm"
+                  aria-label={`Enviar correo a ${person.name}`}
+                >
+                  <Icon name="ri:mail-fill" size={20} />
+                </a>
+              </div>
+            </div>
+          </article>
+        ))
+      }
+    </div>
+
+    <aside class="mt-10">
+      <div
+        class="border-primary bg-base-200 dark:bg-base-300 mx-auto max-w-3xl rounded-lg border-l-4 p-6"
+      >
+        <div class="flex items-start gap-4">
+          <div class="bg-primary/10 shrink-0 rounded-full p-3">
+            <Icon
+              name="ri:information-2-fill"
+              class="text-primary h-6 w-6"
+              size={24}
             />
-          </figure>
-          <div class="card-body items-center text-center">
-            <h2 class="card-title">{person.name}</h2>
-            <p class="text-accent text-sm">{person.specialty}</p>
-            <p>{person.description}</p>
+          </div>
+          <div>
+            <h3 class="text-lg font-bold">Equipo Colaborativo</h3>
+            <p class="mt-1 text-gray-600 dark:text-gray-300">
+              Contamos con un equipo de 15 asociados y asistentes legales
+              especializados en diferentes áreas del derecho.
+            </p>
           </div>
         </div>
-      ))
-    }
-
-    <div
-      class="border-primary dark:bg-base-300 mx-auto max-w-3xl rounded-lg border-l-4 bg-blue-50 p-6"
-    >
-      <div class="flex items-start gap-4">
-        <div class="shrink-0 rounded-full bg-blue-100 p-3 dark:bg-blue-900">
-          <Icon
-            name="ri:information-2-fill"
-            class="text-primary h-6 w-6 dark:text-white"
-            size={24}
-          />
-        </div>
-        <div>
-          <h3 class="text-lg font-bold text-gray-900 dark:text-white">
-            Equipo Colaborativo
-          </h3>
-          <p class="mt-1 text-gray-600 dark:text-gray-300">
-            Contamos con un equipo de 15 asociados y asistentes legales
-            especializados en diferentes áreas del derecho.
-          </p>
-        </div>
       </div>
-    </div>
+    </aside>
   </div>
 </section>
