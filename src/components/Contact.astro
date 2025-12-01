@@ -15,7 +15,7 @@ const contactInfo = [
     icon: "phone-fill",
     title: "Teléfonos",
     content:
-      'Oficina: <a href="tel:+525555551234" class="text-primary hover:underline">+52 (55) 5555-1234</a><br />Emergencias: <a href="tel:+525555554321" class="text-primary hover:underline">+52 (55) 5555-4321</a>',
+      'Oficina: <a href="tel:+525555551234" class="text-primary hover:underline">+52 (55) 5555-1234</a><br />',
   },
   {
     icon: "mail-fill",
@@ -137,6 +137,8 @@ const services = [
             class="input input-bordered lg:input-lg w-full"
             required
             autocomplete="name"
+            aria-required="true"
+            aria-invalid="false"
           />
         </div>
         <div>
@@ -162,9 +164,9 @@ const services = [
           </label>
           <div
             id="phone-hint"
-            class="validator-hint hidden text-xs text-gray-500"
+            class="mt-1 text-xs text-gray-500 dark:text-gray-400"
           >
-            El número debe tener 10 dígitos
+            Ingrese 10 dígitos sin espacios ni guiones
           </div>
         </div>
         <div>
@@ -188,9 +190,9 @@ const services = [
           </label>
           <div
             id="email-hint"
-            class="validator-hint hidden text-xs text-gray-500"
+            class="mt-1 text-xs text-gray-500 dark:text-gray-400"
           >
-            Ingrese una dirección de correo válida
+            Ejemplo: nombre@dominio.com
           </div>
         </div>
         <div>
