@@ -16,7 +16,7 @@ const {
 } = Astro.props;
 ---
 
-<html lang="es" data-theme="corporate">
+<html lang="es-AR" data-theme="corporate">
   <head>
     <meta charset="utf-8" />
     <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
@@ -33,37 +33,101 @@ const {
     <meta name="description" content={description} />
     <meta
       name="keywords"
-      content="abogados, estudio jurídico, derecho civil, derecho corporativo, derecho laboral, derecho tributario, asesoría legal"
+      content="abogados, estudio jurídico, derecho civil, derecho corporativo, derecho laboral, derecho tributario, asesoría legal, abogados en Buenos Aires, consulta legal gratuita, servicios legales"
     />
     <meta name="author" content="Estudio Jurídico LawFirst" />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href={Astro.url.href} />
+    <meta name="language" content="Spanish" />
+    <meta name="geo.region" content="AR-B" />
+    <meta name="geo.placename" content="Buenos Aires" />
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
+    <meta property="og:url" content={Astro.url.href} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
+    <meta property="og:image" content="/og-image.jpg" />
+    <meta property="og:locale" content="es_ES" />
+    <meta property="og:site_name" content="Estudio Jurídico LawFirst" />
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content={Astro.url.href} />
     <meta property="twitter:title" content={title} />
     <meta property="twitter:description" content={description} />
+    <meta property="twitter:image" content="/og-image.jpg" />
+
+    <!-- JSON-LD Structured Data -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "LegalService",
+        "name": "Estudio Jurídico LawFirst",
+        "description": "Estudio jurídico especializado en derecho civil, corporativo, laboral y tributario.",
+        "url": "https://www.estudiojuridicolawfirst.com",
+        "logo": "https://www.estudiojuridicolawfirst.com/logo.png",
+        "image": "https://www.estudiojuridicolawfirst.com/og-image.jpg",
+        "telephone": "+52-55-5555-1234",
+        "email": "contacto@estudiojuridicolawfirst.com",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Calle 123, Piso 4, Colonia Santa Lucía",
+          "addressLocality": "Lomas de Zamora",
+          "postalCode": "01234",
+          "addressCountry": "AR"
+        },
+        "geo": {
+          "@type": "GeoCoordinates",
+          "latitude": "-34.7606",
+          "longitude": "-58.4022"
+        },
+        "openingHoursSpecification": [
+          {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": [
+              "Monday",
+              "Tuesday",
+              "Wednesday",
+              "Thursday",
+              "Friday"
+            ],
+            "opens": "09:00",
+            "closes": "19:00"
+          },
+          {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": "Saturday",
+            "opens": "10:00",
+            "closes": "14:00"
+          }
+        ],
+        "priceRange": "$$",
+        "areaServed": "Buenos Aires, Argentina",
+        "sameAs": [
+          "https://www.facebook.com/estudiojuridico",
+          "https://www.instagram.com/estudiojuridico",
+          "https://twitter.com/estudiojuridico"
+        ]
+      }
+    </script>
 
     <script src="https://cdn.jsdelivr.net/npm/theme-change@2.0.2/index.js"
     ></script>
   </head>
-  <body>
+  <body class="flex min-h-dvh flex-col">
     <Header />
-    <main class="mx-auto">
+    <main class="mx-auto flex-1">
       <slot />
       <div class="fixed right-4 bottom-4 z-50">
         <a
           href="https://wa.me/+5491164844946"
           target="_blank"
           rel="noopener noreferrer"
-          tabindex="0"
-          role="button"
+          aria-label="Contactar por WhatsApp - Abre en nueva ventana"
           class="btn btn-lg md:btn-lg btn-circle btn-success shadow-lg"
         >
-          <Icon name="ri:message-2-fill" size={24} />
+          <Icon name="ri:message-2-fill" size={24} aria-hidden="true" />
         </a>
       </div>
     </main>
