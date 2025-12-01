@@ -1,6 +1,7 @@
 ---
 import { Icon } from "astro-icon/components";
 import { Picture } from "astro:assets";
+import SectionHeader from "@components/shared/SectionHeader.astro";
 import MapsPlaceholder from "@assets/maps-placeholder.png";
 
 const contactInfo = [
@@ -24,9 +25,9 @@ const contactInfo = [
   },
   {
     icon: "time-fill",
-    title: "Horarios",
+    title: "Horarios de Atención",
     content:
-      'Lunes a Viernes: 9:00 AM - 7:00 PM Sábados: 10:00 AM - 2:00 PM <span class="text-accent font-semibold">Emergencias 24/7</span>',
+      'Lunes a Viernes: 9:00 AM - 7:00 PM<br />Sábados: 10:00 AM - 2:00 PM<br /><span class="text-accent font-semibold">Emergencias 24/7</span>',
   },
 ];
 
@@ -44,30 +45,27 @@ const services = [
 
 <section
   id="contact"
-  class="dark:to-base-300 mt-6 flex flex-col gap-4 rounded-t-xl bg-linear-to-b from-blue-50 to-slate-50 py-8 lg:py-16 dark:from-slate-700"
+  class="from-primary/10 to-secondary/10 mt-6 flex flex-col gap-4 rounded-t-xl bg-linear-to-br py-8 lg:py-16"
   aria-labelledby="contact-heading"
 >
   <div
     class="mx-4 grid gap-4 sm:grid-cols-4 lg:mx-auto lg:w-5xl lg:grid-cols-12 xl:w-6xl"
   >
     <div
-      class="bg-base-100 rounded p-8 shadow-2xl sm:col-span-3 lg:col-span-9 lg:p-12"
+      class="bg-base-100 rounded p-8 shadow-lg sm:col-span-3 lg:col-span-9 lg:p-12"
     >
-      <header class="mb-8 px-4 text-center lg:mb-12">
-        <h2
-          id="contact-heading"
-          class="mb-4 text-4xl font-extrabold text-balance lg:text-5xl"
-        >
-          Contacto
-        </h2>
-        <div class="bg-primary mx-auto h-1 w-24 rounded-full"></div>
-      </header>
+      <SectionHeader
+        id="contact-heading"
+        title="Contacto"
+        className="mt-4 mb-10 text-center"
+      />
 
       <div class="mb-8 text-center lg:mb-12">
         <p
           class="leading-relaxed text-gray-700 lg:text-lg xl:text-xl dark:text-white"
         >
-          Estamos listos para escuchar su caso. Primera consulta sin costo.
+          Estamos listos para escuchar su caso. Primera consulta gratuita y sin
+          compromiso.
         </p>
       </div>
 
@@ -112,10 +110,10 @@ const services = [
   </div>
 
   <div
-    class="bg-base-100 mx-4 rounded-lg p-8 shadow-xl lg:mx-auto lg:w-5xl lg:p-12 xl:w-6xl"
+    class="bg-base-100 mx-4 rounded-lg p-8 shadow-lg lg:mx-auto lg:w-5xl lg:p-12 xl:w-6xl"
   >
     <h3
-      class="text-primary mb-6 text-2xl font-bold lg:mb-8 lg:text-4xl xl:text-5xl"
+      class="font-heading text-primary mb-6 text-2xl font-bold lg:mb-8 lg:text-4xl xl:text-5xl"
     >
       Solicitar Consulta
     </h3>
@@ -135,7 +133,7 @@ const services = [
             type="text"
             id="nombre"
             name="nombre"
-            placeholder="Juan Pérez"
+            placeholder="Ej: Juan Pérez García"
             class="input input-bordered lg:input-lg w-full"
             required
             autocomplete="name"
@@ -256,8 +254,8 @@ const services = [
         id="form-help"
         class="text-center text-sm text-gray-500 lg:text-base dark:text-gray-400"
       >
-        <span class="text-red-600">* </span>Campos obligatorios. Respuesta en 24
-        horas.
+        <span class="text-red-600">* </span>Campos obligatorios. Le
+        responderemos en un máximo de 24 horas.
       </p>
     </form>
   </div>

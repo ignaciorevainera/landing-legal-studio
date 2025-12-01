@@ -1,0 +1,57 @@
+---
+import { Icon } from "astro-icon/components";
+import { Picture } from "astro:assets";
+import type { ImageMetadata } from "astro";
+
+interface Props {
+  name: string;
+  specialty: string;
+  description: string;
+  image: ImageMetadata;
+  email?: string;
+}
+
+const {
+  name,
+  specialty,
+  description,
+  image,
+  email = "contacto@legalstudio.com",
+} = Astro.props;
+---
+
+<article
+  class="card bg-base-200 h-full shadow-lg"
+  aria-labelledby={`${name}-title`}
+>
+  <div class="card-body items-center text-center">
+    <Picture
+      src={image}
+      formats={["avif", "webp", "jpeg"]}
+      alt={`Foto profesional de ${name}, especialista en ${specialty}`}
+      class="mask mask-hexagon size-40 object-cover"
+    />
+    <h3 id={`${name}-title`} class="card-title">
+      {name}
+    </h3>
+    <p class="text-accent text-sm font-bold">{specialty}</p>
+    <p class="text-sm md:text-base">{description}</p>
+
+    <div class="mt-4 flex items-center justify-center gap-2">
+      <button
+        class="btn btn-primary"
+        type="button"
+        aria-label={`Solicitar reunión con ${name}`}
+      >
+        Solicitar Reunión
+      </button>
+      <a
+        href={`mailto:${email}?subject=Consulta%20para%20${encodeURIComponent(name)}`}
+        class="btn btn-secondary btn-square"
+        aria-label={`Enviar correo a ${name}`}
+      >
+        <Icon name="ri:mail-fill" size={20} />
+      </a>
+    </div>
+  </div>
+</article>

@@ -1,5 +1,7 @@
 ---
-import ServiceCard from "./ServiceCard.astro";
+import ServiceCard from "@components/shared/ServiceCard.astro";
+import SectionHeader from "@components/shared/SectionHeader.astro";
+import Section from "@components/shared/Section.astro";
 
 const services = [
   {
@@ -47,58 +49,48 @@ const services = [
 ];
 ---
 
-<section id="services" aria-labelledby="services-heading">
-  <div class="container mx-auto max-w-7xl px-4">
-    <header class="my-16">
-      <h2
-        id="services-heading"
-        class="mb-4 text-center text-4xl font-extrabold text-balance"
-      >
-        Servicios
-      </h2>
-      <div class="bg-primary mx-auto h-1 w-24 rounded-full"></div>
-    </header>
+<Section id="services" ariaLabelledBy="services-heading">
+  <SectionHeader id="services-heading" title="Servicios" />
 
-    <div class="mb-6">
-      <p class="prose prose-sm text-gray-700 md:text-lg dark:text-gray-300">
-        Ofrecemos servicios jurídicos integrales con un enfoque personalizado
-        para cada cliente. Nuestro equipo de abogados especializados está
-        comprometido con la excelencia y la defensa de sus derechos.
-      </p>
-    </div>
-
-    <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-      {
-        services.map((service) => (
-          <article
-            id={service.id}
-            class="h-full"
-            aria-labelledby={`${service.id}-title`}
-          >
-            <ServiceCard
-              title={service.title}
-              description={service.description}
-              icon={service.icon}
-            />
-          </article>
-        ))
-      }
-    </div>
-
-    <footer class="mt-10 text-center text-balance">
-      <p
-        class="prose prose-sm mx-auto mb-6 text-gray-700 md:text-lg dark:text-gray-300"
-      >
-        Cada caso es único y merece una atención especializada. Contáctenos para
-        una consulta personalizada.
-      </p>
-      <a
-        href="#contact"
-        class="btn btn-primary btn-lg"
-        aria-label="Solicitar una consulta personalizada"
-      >
-        Solicitar Consulta
-      </a>
-    </footer>
+  <div class="mb-6">
+    <p class="prose prose-sm text-gray-700 md:text-lg dark:text-gray-300">
+      Ofrecemos servicios jurídicos integrales con un enfoque personalizado para
+      cada cliente. Nuestro equipo de abogados especializados está comprometido
+      con la excelencia profesional y la defensa efectiva de sus derechos.
+    </p>
   </div>
-</section>
+
+  <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+    {
+      services.map((service) => (
+        <article
+          id={service.id}
+          class="h-full"
+          aria-labelledby={`${service.id}-title`}
+        >
+          <ServiceCard
+            title={service.title}
+            description={service.description}
+            icon={service.icon}
+          />
+        </article>
+      ))
+    }
+  </div>
+
+  <footer class="mt-10 text-center text-balance">
+    <p
+      class="prose prose-sm mx-auto mb-6 text-gray-700 md:text-lg dark:text-gray-300"
+    >
+      Cada caso es único y merece una atención especializada. Contáctenos para
+      obtener una consulta personalizada y sin compromiso.
+    </p>
+    <a
+      href="#contact"
+      class="btn btn-primary btn-lg"
+      aria-label="Solicitar una consulta personalizada"
+    >
+      Solicitar Consulta
+    </a>
+  </footer>
+</Section>

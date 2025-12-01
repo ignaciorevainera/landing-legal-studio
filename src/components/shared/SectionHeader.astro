@@ -1,0 +1,19 @@
+---
+interface Props {
+  id: string;
+  title: string;
+  className?: string;
+}
+
+const { id, title, className = "mt-28 mb-10 text-center" } = Astro.props;
+---
+
+<header class={className}>
+  <h2
+    id={id}
+    class="font-heading mb-4 text-4xl font-extrabold text-balance md:text-5xl"
+  >
+    {title}
+  </h2>
+  <div class="bg-primary mx-auto h-1 w-24 rounded-full"></div>
+</header>

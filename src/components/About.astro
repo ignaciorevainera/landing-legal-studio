@@ -1,133 +1,127 @@
 ---
 import { Icon } from "astro-icon/components";
+import Section from "@components/shared/Section.astro";
+import SectionHeader from "@components/shared/SectionHeader.astro";
 
 const texts = [
-  "Somos un estudio jurídico con amplia experiencia en derecho civil y mercantil. Brindamos asesoría integral para la resolución eficiente de conflictos, siempre priorizando los intereses y derechos de nuestros clientes.",
-  "Ofrecemos un servicio personalizado y transparente: desde el primer contacto realizamos un análisis detallado del caso, proponemos estrategias claras y acompañamos en cada etapa del proceso hasta la resolución.",
-  "Nuestro compromiso es la confidencialidad, la ética profesional y la búsqueda de soluciones efectivas. Trabajamos con rigor técnico y una atención humana para proteger lo que más importa a quienes nos confían sus asuntos legales.",
+  "Somos un estudio jurídico con amplia experiencia en Derecho Civil y Mercantil. Brindamos asesoría integral para la resolución eficiente de conflictos, priorizando siempre los intereses y derechos de nuestros clientes.",
+  "Ofrecemos un servicio personalizado y transparente. Desde el primer contacto, realizamos un análisis detallado del caso, proponemos estrategias claras y acompañamos en cada etapa del proceso hasta alcanzar la resolución definitiva.",
+  "Nuestro compromiso se fundamenta en la confidencialidad, la ética profesional y la búsqueda de soluciones efectivas. Trabajamos con rigor técnico y atención humana para proteger lo que más importa a quienes nos confían sus asuntos legales.",
 ];
 
 const differentiators = [
-  "Atención personalizada 24/7 en casos urgentes",
-  "Equipo multidisciplinario de especialistas certificados",
-  "Uso de tecnología legal de vanguardia",
-  "Honorarios transparentes sin sorpresas",
+  "Atención personalizada 24/7 en casos urgentes.",
+  "Equipo multidisciplinario de especialistas certificados.",
+  "Uso de tecnología legal de vanguardia.",
+  "Honorarios transparentes y sin costos ocultos.",
 ];
 
 const stats = [
-  { value: "25+", label: "Años de experiencia", desc: "Desde 1998" },
-  { value: "500+", label: "Casos exitosos", desc: "↗︎ 98% tasa de éxito" },
+  { value: "25+", label: "Años de Experiencia", desc: "Desde 1998" },
+  { value: "500+", label: "Casos Exitosos", desc: "↗︎ 98% de Éxito" },
   {
     value: "1,200+",
-    label: "Clientes satisfechos",
-    desc: "Confianza continua",
+    label: "Clientes Satisfechos",
+    desc: "Relaciones de Confianza",
   },
 ];
 ---
 
-<section id="about" aria-labelledby="about-heading">
-  <div class="container mx-auto max-w-7xl px-4">
-    <header class="my-16 text-center">
-      <h2
-        id="about-heading"
-        class="mb-4 text-4xl font-extrabold text-balance md:text-5xl"
-      >
-        Acerca de Nosotros
-      </h2>
-      <div class="bg-primary mx-auto h-1 w-24 rounded-full"></div>
-    </header>
+<Section id="about" ariaLabelledBy="about-heading">
+  <SectionHeader id="about-heading" title="Acerca del Estudio" />
 
-    <div class="mb-12 grid grid-cols-1 gap-4 lg:grid-cols-12">
-      <article class="space-y-6 lg:col-span-8">
-        {
-          texts.map((text) => (
-            <p class="text-lg leading-relaxed text-gray-700 dark:text-gray-300">
-              {text}
-            </p>
-          ))
-        }
-      </article>
-
-      <aside class="lg:col-span-4">
-        <div
-          class="card from-primary/10 to-secondary/10 border-primary/20 h-full border bg-linear-to-br shadow-lg"
-        >
-          <div class="card-body">
-            <h3 class="card-title text-primary items-center text-2xl font-bold">
-              <Icon name="ri:checkbox-circle-line" size={32} class="shrink-0" />
-              <span class="md:text-2xl lg:text-3xl">Nuestra Filosofía</span>
-            </h3>
-            <p class="text-base leading-relaxed md:text-xl">
-              Creemos que el acceso a la justicia debe estar acompañado de un
-              servicio profesional, transparente y humano. Cada caso es una
-              oportunidad para marcar una diferencia real en la vida de nuestros
-              clientes.
-            </p>
-          </div>
-        </div>
-      </aside>
-    </div>
-
-    <div class="mb-12">
-      <div
-        class="stats stats-vertical sm:stats-horizontal bg-base-200 w-full shadow-lg"
-      >
-        {
-          stats.map((stat) => (
-            <div class="stat place-items-center">
-              <div class="stat-title font-medium">{stat.label}</div>
-              <div class="stat-value text-primary">{stat.value}</div>
-              <div class="stat-desc text-sm">{stat.desc}</div>
-            </div>
-          ))
-        }
-      </div>
-    </div>
-
-    <div class="grid grid-cols-1 gap-4 md:grid-cols-2">
-      <div class="card bg-base-100 shadow-lg">
-        <div class="card-body">
-          <h3 class="card-title mb-4 text-2xl font-bold">
-            <Icon name="ri:shield-star-line" size={28} class="text-secondary" />
-            Nuestro Enfoque
-          </h3>
-          <ul class="space-y-3">
-            {
-              differentiators.map((item) => (
-                <li class="flex items-start gap-3">
-                  <Icon
-                    name="ri:check-line"
-                    size={20}
-                    class="text-primary mt-1 shrink-0"
-                  />
-                  <span class="text-base">{item}</span>
-                </li>
-              ))
-            }
-          </ul>
-        </div>
-      </div>
-
-      <div
-        class="card from-primary to-secondary text-primary-content bg-linear-to-br shadow-lg"
-      >
-        <div class="card-body items-center justify-center text-center">
-          <Icon name="ri:scales-3-line" size={48} class="mb-2" />
-          <h3 class="card-title text-2xl font-bold">
-            ¿Necesitas asesoría legal?
-          </h3>
-          <p class="mb-4">
-            Agenda una consulta inicial gratuita con nuestros especialistas.
+  <div class="mb-12 grid grid-cols-1 gap-4 lg:grid-cols-12">
+    <article class="space-y-6 lg:col-span-8">
+      {
+        texts.map((text) => (
+          <p class="text-lg leading-relaxed text-gray-700 dark:text-gray-300">
+            {text}
           </p>
-          <a
-            href="#contacto"
-            class="btn btn-neutral btn-wide"
-            aria-label="Agendar consulta gratuita"
+        ))
+      }
+    </article>
+
+    <aside class="lg:col-span-4">
+      <div
+        class="card from-primary/10 to-secondary/10 border-primary/20 h-full border bg-linear-to-br shadow-lg"
+      >
+        <div class="card-body">
+          <h3
+            class="card-title text-primary font-heading items-center text-2xl font-bold"
           >
-            Agenda tu Consulta
-          </a>
+            <Icon name="ri:checkbox-circle-line" size={32} class="shrink-0" />
+            <span class="md:text-2xl lg:text-3xl">Nuestra Filosofía</span>
+          </h3>
+          <p class="text-base leading-relaxed md:text-xl">
+            Creemos que el acceso a la justicia debe estar acompañado de un
+            servicio profesional, transparente y humano. Cada caso representa
+            una oportunidad para marcar una diferencia significativa en la vida
+            de nuestros clientes.
+          </p>
         </div>
+      </div>
+    </aside>
+  </div>
+
+  <div class="mb-12">
+    <div
+      class="stats stats-vertical sm:stats-horizontal bg-base-200 w-full shadow-lg"
+    >
+      {
+        stats.map((stat) => (
+          <div class="stat place-items-center">
+            <div class="stat-title font-medium">{stat.label}</div>
+            <div class="stat-value text-primary">{stat.value}</div>
+            <div class="stat-desc text-sm">{stat.desc}</div>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+
+  <div class="grid grid-cols-1 gap-4 md:grid-cols-2">
+    <div class="card bg-base-100 shadow-lg">
+      <div class="card-body">
+        <h3 class="card-title font-heading mb-4 text-2xl font-bold">
+          <Icon name="ri:shield-star-line" size={28} class="text-secondary" />
+          Nuestro Enfoque
+        </h3>
+        <ul class="space-y-3">
+          {
+            differentiators.map((item) => (
+              <li class="flex items-start gap-3">
+                <Icon
+                  name="ri:check-line"
+                  size={20}
+                  class="text-primary mt-1 shrink-0"
+                />
+                <span class="text-base">{item}</span>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+    </div>
+
+    <div
+      class="card from-primary to-secondary text-primary-content bg-linear-to-br shadow-lg"
+    >
+      <div class="card-body items-center justify-center text-center">
+        <Icon name="ri:scales-3-line" size={48} class="mb-2" />
+        <h3 class="card-title font-heading text-2xl font-bold">
+          ¿Necesita Asesoría Legal?
+        </h3>
+        <p class="mb-4">
+          Agende una consulta inicial gratuita con nuestros especialistas.
+        </p>
+        <a
+          href="#contact"
+          class="btn btn-neutral btn-wide"
+          aria-label="Agendar consulta gratuita"
+        >
+          Agendar Consulta
+        </a>
       </div>
     </div>
   </div>
-</section>
+</Section>

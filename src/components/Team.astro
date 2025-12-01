@@ -1,6 +1,8 @@
 ---
 import { Icon } from "astro-icon/components";
-import { Picture } from "astro:assets";
+import Section from "@components/shared/Section.astro";
+import SectionHeader from "@components/shared/SectionHeader.astro";
+import TeamMemberCard from "@components/shared/TeamMemberCard.astro";
 import TeamMember1 from "@assets/team/team-photo-1.png";
 import TeamMember2 from "@assets/team/team-photo-2.png";
 import TeamMember3 from "@assets/team/team-photo-3.png";
@@ -54,88 +56,52 @@ const team = [
 ];
 ---
 
-<section id="team" aria-labelledby="team-heading">
-  <div class="container mx-auto max-w-7xl px-4">
-    <header class="my-16 text-center">
-      <h2 id="team-heading" class="mb-4 text-4xl font-extrabold text-balance">
-        Equipo
-      </h2>
-      <div class="bg-primary mx-auto h-1 w-24 rounded-full"></div>
-    </header>
-    <div class="mb-6">
-      <p
-        class="prose prose-sm mx-auto text-gray-700 md:text-lg dark:text-gray-300"
-      >
-        Nuestro equipo multidisciplinario combina experiencia en derecho
-        corporativo, propiedad intelectual y litigios complejos. Trabajamos de
-        forma cercana con nuestros clientes para anticipar riesgos y generar
-        soluciones estratégicas.
-      </p>
-    </div>
+<Section id="team" ariaLabelledBy="team-heading">
+  <SectionHeader id="team-heading" title="Nuestro Equipo" />
+  <div class="mb-6">
+    <p
+      class="prose prose-sm mx-auto text-gray-700 md:text-lg dark:text-gray-300"
+    >
+      Nuestro equipo multidisciplinario combina experiencia en Derecho
+      Corporativo, Propiedad Intelectual y Litigios Complejos. Trabajamos de
+      forma cercana con nuestros clientes para anticipar riesgos y desarrollar
+      soluciones estratégicas efectivas.
+    </p>
+  </div>
 
-    <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-      {
-        team.map((person) => (
-          <article
-            class="card bg-base-200 h-full shadow-lg"
-            aria-labelledby={`${person.name}-title`}
-          >
-            <div class="card-body items-center text-center">
-              <Picture
-                src={person.image}
-                formats={["avif", "webp", "jpeg"]}
-                alt={`Foto profesional de ${person.name}, especialista en ${person.specialty}`}
-                class="mask mask-hexagon size-40 object-cover"
-              />
-              <h3 id={`${person.name}-title`} class="card-title">
-                {person.name}
-              </h3>
-              <p class="text-accent text-sm font-bold">{person.specialty}</p>
-              <p class="text-sm md:text-base">{person.description}</p>
+  <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+    {
+      team.map((person) => (
+        <TeamMemberCard
+          name={person.name}
+          specialty={person.specialty}
+          description={person.description}
+          image={person.image}
+        />
+      ))
+    }
+  </div>
 
-              <div class="mt-4 flex items-center justify-center gap-2">
-                <button
-                  class="btn btn-primary"
-                  type="button"
-                  aria-label={`Solicitar reunión con ${person.name}`}
-                >
-                  Solicitar reunión
-                </button>
-                <a
-                  href={`mailto:contacto@legalstudio.com?subject=Consulta%20para%20${encodeURIComponent(person.name)}`}
-                  class="btn btn-secondary btn-square"
-                  aria-label={`Enviar correo a ${person.name}`}
-                >
-                  <Icon name="ri:mail-fill" size={20} />
-                </a>
-              </div>
-            </div>
-          </article>
-        ))
-      }
-    </div>
-
-    <aside class="mt-6">
-      <div
-        class="border-primary bg-base-200 dark:bg-base-300 mx-auto max-w-3xl rounded-lg border-l-4 p-6"
-      >
-        <div class="flex items-start gap-4">
-          <div class="bg-primary/10 shrink-0 rounded-full p-3">
-            <Icon
-              name="ri:information-2-fill"
-              class="text-primary h-6 w-6"
-              size={24}
-            />
-          </div>
-          <div>
-            <h3 class="text-lg font-bold">Equipo Colaborativo</h3>
-            <p class="mt-1 text-gray-600 md:text-lg dark:text-gray-300">
-              Contamos con un equipo de 15 asociados y asistentes legales
-              especializados en diferentes áreas del derecho.
-            </p>
-          </div>
+  <aside class="mt-6">
+    <div
+      class="border-primary bg-base-200 dark:bg-base-300 mx-auto max-w-3xl rounded-lg border-l-4 p-6"
+    >
+      <div class="flex items-start gap-4">
+        <div class="bg-primary/10 shrink-0 rounded-full p-3">
+          <Icon
+            name="ri:information-2-fill"
+            class="text-primary h-6 w-6"
+            size={24}
+          />
+        </div>
+        <div>
+          <h3 class="font-heading text-lg font-bold">Equipo Colaborativo</h3>
+          <p class="mt-1 text-gray-600 md:text-lg dark:text-gray-300">
+            Contamos con un equipo de 15 asociados y asistentes legales
+            especializados en diferentes áreas del Derecho.
+          </p>
         </div>
       </div>
-    </aside>
-  </div>
-</section>
+    </div>
+  </aside>
+</Section>
