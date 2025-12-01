@@ -1,11 +1,19 @@
 @import "tailwindcss";
 @import "./corporate-dark-theme.css";
 
+@import "@fontsource-variable/inter";
+@import "@fontsource-variable/merriweather";
+
 @plugin "daisyui" {
   themes: corporate --default, corporate-dark --prefersdark;
 }
 
 @custom-variant dark (&:where([data-theme=corporate-dark], [data-theme=corporate-dark] *));
+
+@theme {
+  --font-sans: 'Inter Variable', sans-serif;
+  --font-heading: 'Merriweather Variable', serif;
+}
 
 html {
   scroll-behavior: smooth;
