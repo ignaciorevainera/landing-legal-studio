@@ -1,0 +1,33 @@
+---
+import Layout from "@layouts/Layout.astro";
+import { Icon } from "astro-icon/components";
+
+const title = "Error 404 - Estudio Jurídico LawFirst";
+const description =
+  "Lo sentimos, la página que buscas no se pudo encontrar. Regresa a la página principal del Estudio Jurídico LawFirst para explorar nuestros servicios legales.";
+---
+
+<Layout title={title} description={description}>
+  <div
+    class="flex size-full min-h-screen flex-col items-center justify-center gap-2 px-6 md:flex-row"
+  >
+    <Icon
+      name="ri:emotion-sad-line"
+      class="size-32 text-black/40 md:size-48 lg:size-64"
+      aria-hidden="true"
+    />
+    <div class="flex flex-col items-center md:items-start">
+      <h1
+        class="font-heading text-center text-lg font-bold text-pretty text-black/70 md:text-start md:text-2xl lg:text-4xl"
+      >
+        ¡Vaya! La página que buscas no se pudo encontrar.
+      </h1>
+      <a
+        href="/"
+        class="btn btn-primary btn-sm md:btn-md lg:btn-lg mt-4"
+        aria-label="Regresar a la página principal"
+        >Regresar a la página principal
+      </a>
+    </div>
+  </div>
+</Layout>
