@@ -42,16 +42,84 @@ const {
         class="btn btn-primary"
         type="button"
         aria-label={`Solicitar reunión con ${name}`}
+        onclick="showMeetingToast(this)"
+        data-member={name}
+        data-specialty={specialty}
       >
         Solicitar Reunión
       </button>
-      <a
-        href={`mailto:${email}?subject=Consulta%20para%20${encodeURIComponent(name)}`}
+      <button
         class="btn btn-secondary btn-square"
+        type="button"
         aria-label={`Enviar correo a ${name}`}
+        onclick="showEmailToast(this)"
+        data-member={name}
+        data-email={email}
       >
         <Icon name="ri:mail-fill" size={20} />
-      </a>
+      </button>
     </div>
   </div>
 </article>
+
+<script>
+  function showMeetingToast(button: HTMLButtonElement) {
+    const member = button.getAttribute("data-member");
+    const specialty = button.getAttribute("data-specialty");
+
+    const toast = document.createElement("div");
+    toast.className = "toast toast-end";
+    toast.style.opacity = "0";
+    toast.style.transition = "opacity 0.2s ease-in-out";
+    toast.innerHTML = `
+      <div class="alert alert-info">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M12 22C6.477 22 2 17.523 2 12S6.477 2 12 2s10 4.477 10 10s-4.477 10-10 10m0-2a8 8 0 1 0 0-16a8 8 0 0 0 0 16m1-9.5V15h1v2h-4v-2h1v-2.5h-1v-2zm.5-2.5a1.5 1.5 0 1 1-3 0a1.5 1.5 0 0 1 3 0"/></svg>
+        <span>Solicitud de reunión con <strong>${member}</strong> (${specialty}) enviada. Nos comunicaremos en breve.</span>
+      </div>
+    `;
+
+    document.body.appendChild(toast);
+
+    setTimeout(() => {
+      toast.style.opacity = "1";
+    }, 10);
+
+    setTimeout(() => {
+      toast.style.opacity = "0";
+      setTimeout(() => toast.remove(), 200);
+    }, 4000);
+  }
+
+  function showEmailToast(button: HTMLButtonElement) {
+    const member = button.getAttribute("data-member");
+    const email = button.getAttribute("data-email");
+
+    const toast = document.createElement("div");
+    toast.className = "toast toast-end";
+    toast.style.opacity = "0";
+    toast.style.transition = "opacity 0.2s ease-in-out";
+    toast.innerHTML = `
+      <div class="alert alert-success">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M4 12a8 8 0 1 1 16 0a8 8 0 0 1-16 0m8-10C6.477 2 2 6.477 2 12s4.477 10 10 10s10-4.477 10-10S17.523 2 12 2m5.457 7.457l-1.414-1.414L11 13.086l-2.793-2.793l-1.414 1.414L11 15.914z"/></svg>
+        <span>Email a <strong>${member}</strong> preparado. Se abrirá tu cliente de correo.</span>
+      </div>
+    `;
+
+    document.body.appendChild(toast);
+
+    setTimeout(() => {
+      toast.style.opacity = "1";
+    }, 10);
+
+    setTimeout(() => {
+      toast.style.opacity = "0";
+      setTimeout(() => {
+        window.location.href = `mailto:${email}?subject=Consulta%20Legal&body=Estimado/a%20${member},%0D%0A%0D%0AMe%20gustaría%20solicitar%20una%20consulta%20legal.%0D%0A%0D%0ASaludos.`;
+        toast.remove();
+      }, 200);
+    }, 1500);
+  }
+
+  (window as any).showMeetingToast = showMeetingToast;
+  (window as any).showEmailToast = showEmailToast;
+</script>

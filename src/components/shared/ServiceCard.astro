@@ -22,7 +22,41 @@ const { title, description, icon = "file-paper-2-fill" } = Astro.props;
     <h2 class="card-title font-heading font-bold">{title}</h2>
     <p>{description}</p>
     <div class="card-actions mt-4 justify-center">
-      <button class="btn btn-soft btn-primary">Consultar</button>
+      <button
+        class="btn btn-soft btn-primary"
+        onclick="showServiceToast(this)"
+        data-service={title}>Consultar</button
+      >
     </div>
   </div>
 </div>
+
+<script>
+  function showServiceToast(button: HTMLButtonElement) {
+    const service = button.getAttribute("data-service");
+
+    const toast = document.createElement("div");
+    toast.className = "toast toast-end";
+    toast.style.opacity = "0";
+    toast.style.transition = "opacity 0.2s ease-in-out";
+    toast.innerHTML = `
+      <div class="alert alert-success">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M4 12a8 8 0 1 1 16 0a8 8 0 0 1-16 0m8-10C6.477 2 2 6.477 2 12s4.477 10 10 10s10-4.477 10-10S17.523 2 12 2m5.457 7.457l-1.414-1.414L11 13.086l-2.793-2.793l-1.414 1.414L11 15.914z"/></svg>
+        <span>Consulta sobre <strong>${service}</strong> iniciada. Te contactaremos pronto.</span>
+      </div>
+    `;
+
+    document.body.appendChild(toast);
+
+    setTimeout(() => {
+      toast.style.opacity = "1";
+    }, 10);
+
+    setTimeout(() => {
+      toast.style.opacity = "0";
+      setTimeout(() => toast.remove(), 200);
+    }, 3000);
+  }
+
+  (window as any).showServiceToast = showServiceToast;
+</script>
